@@ -1,5 +1,5 @@
 kind: ReplicationController
-apiVersion: v1beta3
+apiVersion: v1
 metadata:
   name: __rcName__
   labels: &labels
@@ -17,32 +17,9 @@ spec:
       labels: *labels
 
     spec:
-      volumes:
-        -  name: secrets
-           secret:
-             secretName: site-ssl-secret
-
       containers:
         - name: __rcName__
           image: __image__
-
-          command:
-            - "/bin/bash"
-            - "/usr/src/start.sh"
-
           ports:
-             - name: __privatePortName1__
-               containerPort: __privatePort1__
-             - name: __privatePortName2__
-               containerPort: __privatePort2__
-
-          env:
-            - name: ENABLE_SSL
-              value: "true"
-            - name: ENABLE_BASIC_AUTH
-              value: "true"
-
-          volumeMounts:
-            - name: secrets
-              readOnly: true
-              mountPath: /etc/secrets
+             - name: __privatePortName__
+               containerPort: __privatePort__

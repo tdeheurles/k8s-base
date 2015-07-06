@@ -7,13 +7,9 @@ metadata:
     major: "__major__"
 spec:
   ports:
-    -  name: __publicPortName1__
-       port: __publicPort1__
-       targetPort: __privatePortName1__
-       protocol: TCP
-    -  name: __publicPortName2__
-       port: __publicPort2__
-       targetPort: __privatePortName2__
+    -  name: __publicPortName__
+       port: __publicPort__
+       targetPort: __privatePortName__
        protocol: TCP
   selector:
     name: __rcName__
